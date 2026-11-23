@@ -102,7 +102,7 @@ sequenceDiagram
   Luna->>Python: classify_intent(request), forwarded by Live
   Python->>Decision: Classify request + recent transcript + active workflow
   Decision-->>Python: Intent + confidence
-  Python->>Python: Select allowed tools; use valid catalogs
+  Python->>Python: Select allowed tools and use valid catalogs
   opt Catalog missing or expired
     Python->>MCP: initialize + tools/list, relevant servers only
     MCP-->>Python: Tool descriptions and JSON Schemas
