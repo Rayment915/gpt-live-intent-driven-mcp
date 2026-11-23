@@ -1,0 +1,18 @@
+name: gpt-live-python
+services:
+  faq:
+    project: .build/functions/faq
+    language: python
+    host: function
+  repair:
+    project: .build/functions/repair
+    language: python
+    host: function
+  verification:
+    project: .build/functions/verification
+    language: python
+    host: function
+hooks:
+  prepackage:
+    shell: sh
+    run: .venv/bin/python scripts/package_functions.py

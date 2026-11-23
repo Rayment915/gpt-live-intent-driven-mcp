@@ -1,0 +1,16 @@
+.venv
+.env
+.env.*
+.azure
+.build
+.git
+.DS_Store
+output
+**/node_modules
+**/__pycache__
+**/.pytest_cache
+frontend/dist
+frontend/test-results
+frontend/playwright-report
+mcp
+tests

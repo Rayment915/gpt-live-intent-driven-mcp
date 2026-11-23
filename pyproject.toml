@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gpt-live-python"
+version = "0.1.0"
+description = "Native GPT-Live Responses delegation with Decision routing and remote MCP"
+requires-python = ">=3.13"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.34,<1",
+  "httpx>=0.28,<1",
+  "websockets>=15,<17",
+  "mcp>=1.20,<2",
+  "azure-identity>=1.23,<2",
+  "azure-data-tables>=12.7,<13",
+  "pydantic-settings>=2.8,<3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<10", "pytest-asyncio>=0.25,<2", "ruff>=0.11", "mypy>=1.15", "build>=1.2"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gpt_live_python"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.mypy]
+python_version = "3.13"
+check_untyped_defs = true
+ignore_missing_imports = true
+
